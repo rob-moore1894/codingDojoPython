@@ -8,10 +8,11 @@ for x in range(5, 1001, 5):
 
 #Counting, the Dojo Way
 for x in range(1, 101, 1):
-    if x%5 == 0:
-        print("Coding")
-    if x%10==0:
+    if x%10 == 0:
         print("Coding Dojo")
+    elif x%5 == 0:
+        print("Coding")
+    
     print (x)
 
 #Whoa. That Sucker's Huge
