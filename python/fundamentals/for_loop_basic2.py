@@ -2,7 +2,7 @@
 # Example: biggie_size([-1, 3, 5, -5]) returns that same list, but whose values are now [-1, "big", "big", -5]
 def biggieSize(list):
     for i in range(0, len(list), 1):
-        if list[i] < 0:
+        if list[i] > 0:
             list[i] = "big"
     print(list)
 
@@ -94,7 +94,7 @@ def ultimateAnalysis(list):
     dict["length"] = length(list)
     return dict
 
-ultimateAnalysis([37,2,1,-9])
+print(ultimateAnalysis([37,2,1,-9]))
 
 # Reverse List - Create a function that takes a list and return that list with values reversed. Do this without creating a second list. (This challenge is known to appear during basic technical interviews.)
 # Example: reverse_list([37,2,1,-9]) should return [-9,1,2,37]
