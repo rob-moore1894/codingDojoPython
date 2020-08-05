@@ -19,11 +19,11 @@ class User:
         return self
     
     # add a transfer_money method
-    def transfer_money(self, transfer_to, amount):
+    def transfer_money(self, other_user, amount):
         self.make_withdawal(amount)
-        transfer_to.make_deposit(amount)
+        other_user.make_deposit(amount)
         self.display_user_balance()
-        transfer_to.display_user_balance()
+        other_user.display_user_balance()
         return self
 
 # Create 3 instances of the User class
