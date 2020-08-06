@@ -1,21 +1,52 @@
+class BankAccount:
+    def __init__(self, int_rate = 0.01, balance = 0):
+        self.int_rate = int_rate
+        self.balance = balance
+
+    #deposit(self, amount) - increases the account balance by the given amount
+    def deposit(self, amount):
+        self.balance += amount
+        return self
+
+    # withdraw(self, amount) - decreases the account balance by the given amount if there are sufficient funds; if there is not enough money, print a message "Insufficient funds: Charging a $5 fee" and deduct $5
+    def withdraw(self, amount):
+        if self.balance < amount:
+            print("Insufficient funds: Charging a $5 fee")
+            self.balance -= 5
+        else:
+            self.balance -= amount
+        return self
+
+    # display_account_info(self) - print to the console: eg. "Balance: $100"
+    def display_account_info(self):
+        print(f"Balance: {self.balance}")
+        return self
+
+    # yield_interest(self) - increases the account balance by the current balance * the interest rate (as long as the balance is positive)
+    def yield_interest(self):
+        if self.balance > 0:
+            addInt = self.balance * self.int_rate
+            self.balance += addInt
+        return self
+
 class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
-        self.account_balance = 0
+        self.account = BankAccount(int_rate = 0.02, balance = 0)
 
     def make_deposit(self, amount):
-        self.account_balance += amount
+        self.account.deposit += amount
         return self
 
     # make_withdrawal(self, amount) - have this method decrease the user's balance by the amount specified
     def make_withdawal(self, amount):
-        self.account_balance -= amount
+        self.account.withdraw -= amount
         return self
 
     # display_user_balance(self) - have this method print the user's name and account balance to the terminal
     def display_user_balance(self):
-        print(f"{self.name}, {self.account_balance}")
+        print(f"{self.name}, {self.account.balance}")
         return self
     
     # add a transfer_money method

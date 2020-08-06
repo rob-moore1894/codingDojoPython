@@ -48,3 +48,20 @@ def check(str):
 
 print("Y(3(p)p(3)r)s", "-", check("Y(3(p)p(3)r)s"))
 print("N(0(p)3", "-", check("N(0(p)3"))
+
+# Acronyms
+# Create a function that, given a string, returns the string’s acronym (first letters only, capitalized). Given " there's no free lunch  -  gotta pay yer way. ", return "TNFL-GPYW". Given "Live from New York, it's Saturday Night!", return "LFNYISN”
+
+def acronym(str):
+    phrase_split = str.split()
+    newStr = ""
+    for i in phrase_split:
+        newStr += i[0].upper()
+    print(newStr)
+
+acronym("Central Intelligence Agency")
+
+def acro(str):
+    print(''.join(i[0].upper() for i in str.split()))
+
+acro("Federal Bureau Investigations")
