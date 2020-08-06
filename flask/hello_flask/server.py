@@ -1,23 +1,26 @@
-from flask import Flask, render_template
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return render_template('homepage.html')
-
-@app.route('/aew')
-def aewPage():
-    return 'All Elite Wrestling'
-
-@app.route('/aew/tagteams')
-def tagTeams():
-    return 'Young Bucks, SCU, Dark Order, Kenny and Hangman, Sonny and Joey'
-
-@app.route("/saysomething/<wordToSay>/<int:numTimes>")
-def saySomething(wordToSay, numTimes):
-    return wordToSay * numTimes
+    return "Hello World"
 
 
+@app.route('/dojo')
+def dojo():
+    return "Dojo"
+
+@app.route('/say/<name>')
+def sayHi(name):
+    return(f"Hi, {name}")
+
+@app.route('/repeat/<int:number>/<phrase>')
+def repeat(number,phrase):
+    return phrase * number
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return "Sorry! No response. Try again."
 
 # no code past this line
 if __name__ == "__main__":
