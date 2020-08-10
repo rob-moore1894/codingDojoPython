@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.row-odd, .row-even {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.red, .black {
+    height: 10rem;
+    width: 10rem;
+}
+
+.red {
+    background-color: {{color1}};
+}
+
+.black {
+    background-color: {{color2}}; 
+}
