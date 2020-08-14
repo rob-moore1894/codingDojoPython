@@ -9,115 +9,29 @@
 </head>
 <body>
     <div id="wrapper">
-        {% if height == undefined: %}
+        {% for i in range(height): %}
+            {% if i % 2 != 0: %}
             <div class="row-odd">
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
+                {% for i in range(width): %}
+                    {% if i % 2 != 0: %}
+                        <div class="box1"></div>
+                    {% else: %}
+                        <div class="box2"></div>
+                    {% endif %}
+                {% endfor %}
             </div>
+            {% else: %}
             <div class="row-even">
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
+                {% for i in range(width): %}
+                    {% if i % 2 != 0: %}
+                        <div class="box2"></div>
+                    {% else: %}
+                        <div class="box1"></div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <div class="row-odd">
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-            </div>
-            <div class="row-even">
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-            </div>
-            <div class="row-odd">
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-            </div>
-            <div class="row-even">
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-            </div>
-            <div class="row-odd">
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-            </div>
-            <div class="row-even">
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-                <div class="black"></div>
-                <div class="red"></div>
-            </div>
-        {% else %}
-            {% for i in range(height): %}
-                {% if i % 2 != 0: %}
-                <div class="row-odd">
-                    {% for i in range(width): %}
-                        {% if i % 2 != 0: %}
-                            <div class="red"></div>
-                        {% else: %}
-                            <div class="black"></div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                {% else: %}
-                <div class="row-even">
-                    {% for i in range(width): %}
-                        {% if i % 2 != 0: %}
-                            <div class="black"></div>
-                        {% else: %}
-                            <div class="red"></div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-        
-        
-        
+            {% endif %}
+        {% endfor %}      
     </div>
     
 </body>

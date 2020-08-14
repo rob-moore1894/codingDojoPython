@@ -3,11 +3,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', height=8, width = 8, color1 = "red", color2 = "black")
 
 @app.route('/<int:height>')
 def heightOfBoard(height):
-    return render_template('index.html', height=height, width = 8)
+    return render_template('index.html', height=height, width = 8, color1 = "red", color2 = "black")
 
 @app.route('/<int:width>/<int:height>/')
 def widthAndHeightOfBoard(width, height):

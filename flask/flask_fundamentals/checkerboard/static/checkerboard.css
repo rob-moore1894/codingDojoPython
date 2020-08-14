@@ -16,15 +16,16 @@
     flex-wrap: nowrap;
 }
 
-.red, .black {
+.box1, .box2 {
     height: 10rem;
     width: 10rem;
 }
 
-.red {
-    background-color: {{color1}};
+.box1 {
+    background-color: red;
 }
 
-.black {
-    background-color: {{color2}}; 
+.box2 {
+    background-color: black; 
 }
+
