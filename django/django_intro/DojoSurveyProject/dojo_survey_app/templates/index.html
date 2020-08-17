@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+    <div id="wrapper">
+        <form action="/result" method="POST">
+            {% csrf_token %}
+            <div class="name-line">
+                <label for="name-input">
+                    Your Name: <input class="name-input" name="name" type="text">
+                </label>
+            </div>
+            <div class="location-line">
+                <label for="dojo-location">
+                    Dojo Location: <select name="location" id="dojo-location">
+                        <option value="Arlington">Arlington</option>
+                        <option value="Bellevue">Bellevue</option>
+                        <option value="Boise">Boise</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Oakland">Oakland</option>
+                        <option value="Orange County">Orange County</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Tulsa">Tulsa</option>
+                        <option value="Online">Online</option>
+                    </select>
+                </label>
+            </div>
+            <div class="language-line">
+                    Favorite Language: 
+                    <input type="radio" id="java" value="Java" name="language">
+                    <label for="java">Java</label>
+                    <input type="radio" id="python" value="Python" name="language">
+                    <label for="Python">Python</label>
+                    <input type="radio" id="cSharpDotNet" value="C#/.NET" name="language">
+                    <label for="cSharpDotNet">C#/.NET</label>
+                    <input type="radio" id="mean" value="MEAN" name="language">
+                    <label for="MEAN">MEAN</label>
+                    <input type="radio" id="ruby" value="Ruby" name="language">
+                    <label for="Ruby">Ruby</label>                    
+            </div>
+            <div class="comment-line">
+                Comment (optional):
+                <textarea type="textarea" name="comment"></textarea>
+            </div>
+            <button type="submit">Button</button>
+        </form>
+    </div>
+</body>
+</html>
