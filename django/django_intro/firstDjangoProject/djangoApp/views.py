@@ -29,3 +29,11 @@ def json(request):
         'content': 'Blog content'
     }
     return JsonResponse(blog)
+
+def display(request):
+    context = {
+        "name": "Rob",
+        "favorite_color": "black",
+        "pets": ["Hiro", "King Murray", "Groot"]
+    }
+    return render(request, "index.html", context)
