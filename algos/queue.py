@@ -48,7 +48,22 @@ class Queue:
         print(runner)
         return self
 
+    def contains(self, val): 
+        runner = self.head
+        while runner != None:
+            if runner.value == val:
+                return True
+            runner = runner.next
+        return False
+    
+    def contain(self, val):
+        runner = self.head
+        while runner != None:
+            if runner.value == val:
+                return True
+        return False
+
 q1 = Queue()
 q1.enqueue(5).enqueue(15).enqueue(25).display()
 print("*****************************")
-q1.dequeue().display()
+print(q1.contains(2))
