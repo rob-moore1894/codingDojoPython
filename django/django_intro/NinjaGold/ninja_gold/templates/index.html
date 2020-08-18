@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Money</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="gold-indicator">
+            <p>Your Gold:</p>  
+            <p id="gold-amount"> {{ request.session.total_gold }} </p>
+        </div>
+        <div class="selection">
+            <div class="location-card">
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="farm">
+                    <div class="card-title">
+                        <strong>Farm</strong>
+                    </div>
+                    <div class="card-body">
+                        (earns 10-20 golds)
+                    </div>
+                    <div class="card-button">
+                        <button type="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="location-card">
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="cave">
+                    <div class="card-title">
+                        <strong>Cave</strong>
+                    </div>
+                    <div class="card-body">
+                        (earns 5-10 golds)
+                    </div>
+                    <div class="card-button">
+                        <button type="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="location-card">
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="house">
+                    <div class="card-title">
+                        <strong>House</strong>
+                    </div>
+                    <div class="card-body">
+                        (earns 2-5 golds)
+                    </div>
+                    <div class="card-button">
+                        <button type="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+            <div class="location-card">
+                <form action="/process_money" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="casino">
+                    <div class="card-title">
+                        <strong>Casino</strong>
+                    </div>
+                    <div class="card-body">
+                        (earns/takes 0-50 golds)
+                    </div>
+                    <div class="card-button">
+                        <button type="submit">Find Gold!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="activity-section">
+            <p>Activities:</p>
+            <div id="activity">
+                {% for activity in request.session.activities reversed %}
+                    <p 
+                        {% if activity.action == 'lost' %}
+                        style="color:red"
+                        {% elif activity.action == 'gained' %}
+                        style="color:green"
+                        {% endif %}
+                    >{{ activity.message }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

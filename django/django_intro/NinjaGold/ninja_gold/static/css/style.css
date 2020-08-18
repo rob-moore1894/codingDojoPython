@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#wrapper {
+    width: 90%;
+    padding: 1rem; 
+    margin: 0 auto;
+    
+}
+
+.gold-indicator {
+    display: flex; 
+    align-items: center;
+    margin-top: 2rem; 
+}
+
+#gold-amount {
+    border: 1px solid black;
+    width: 100px; 
+    text-align: center;
+    margin-left: .5rem; 
+}
+
+.selection {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 1rem auto; 
+}
+
+.location-card {
+    width: 23%;
+    border: 1px solid black;
+    padding: 2rem; 
+}
+
+.card-title, .card-body, .card-button {
+    margin: 1rem; 
+}
+
+button {
+    padding: .5rem;
+}
+
+#activity {
+    width: 100%;
+    height: 10rem; 
+    margin-top: .5rem;
+    overflow: scroll;
+    border: 1px solid black; 
+}
+
+#activity p{
+    margin: .5rem;
+}
