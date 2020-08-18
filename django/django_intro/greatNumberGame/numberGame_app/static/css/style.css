@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#wrapper {
+    width: 90%;
+    margin: 0 auto; 
+}
+
+h1, p {
+    text-align: center;
+}
+
+h1 {
+    margin: 2rem; 
+}
+
+p {
+    margin-top: .5rem; 
+}
+
+form, button {
+    text-align: center;
+    margin: .5rem; 
+}
+
+input[type = "text"]::placeholder {
+    text-align: center;
+}
+
+#highResult, #lowResult, #correct {
+    width: 50%;
+    margin: 0 auto; 
+    padding: 3rem;
+    color: white; 
+}
+
+#highResult, #lowResult {
+    background-color: red;
+}
+
+#correct {
+    background-color: green;
+}
