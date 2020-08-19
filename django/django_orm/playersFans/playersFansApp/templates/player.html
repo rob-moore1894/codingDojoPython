@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Info about a player: {{playaPlaya.firstname}}</h1>
+    <p>Plays for: {{playaPlaya.team}}</p>
+    
+    <p>Fans of this player</p>
+    <ul>
+    {% for fan in playaPlaya.fans.all %}
+        <li>{{fan.firstname}}</li>
+    {% endfor %}
+    </ul>
+    <h5>Add more fans to this player:</h5>
+    
+    <form action="/addFanToPlayer/{{playaPlaya.id}}" method="post">
+        {% csrf_token %}
+        <select name="faninfo" id="">
+            {% for fan in specificFans %}
+            <option value="{{fan.id}}">{{fan.firstname}}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="playerinfo" value= {{playaPlaya.id}} id="">
+        <input type="submit" value="Add fan to player">
+    </form>
+</body>
+</html>

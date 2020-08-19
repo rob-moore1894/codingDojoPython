@@ -1,0 +1,5 @@
+Player.objects.create(firstname = "Devin", lastname= "Booker", team= "Suns")
+
+
+Fan.objects.create(firstname = "Yasir")
+

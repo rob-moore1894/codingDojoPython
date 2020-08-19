@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello Players and Fans</h1>
+    <p>{{allThePlayers}}</p>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Team</th>
+          <th>Action</th>
+        </tr>
+    {% for playerObj in allThePlayers %}
+        <tr>
+          <td>{{playerObj.id}}</td>
+          <td>{{playerObj.firstname}} {{playerObj.lastname}}</td>
+          <td>{{playerObj.team}}</td>
+          <td><a href="/players/{{playerObj.id}}">View</a> | <a href="/delete/{{playerObj.id}}">Delete</a> | <a href="/edit/{{playerObj.id}}">Edit</a></td>
+        </tr>
+    {% endfor %}
+      </table>
+      <h3>Add a player:</h3>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <form action="/createPlayer" method="post">
+            {% csrf_token %}
+        <p>First Name: <input type="text" name="fname" id=""></p>
+        <p>Last Name: <input type="text" name="lname" id=""></p>
+        <p>Team: <input type="text" name="team" id=""></p>
+        <p><input type="submit" value="Add"></p>
+
+      </form>
+      
+</body>
+</html>
