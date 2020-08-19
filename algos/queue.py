@@ -63,7 +63,9 @@ class Queue:
                 return True
         return False
 
+
 q1 = Queue()
 q1.enqueue(5).enqueue(15).enqueue(25).display()
 print("*****************************")
 print(q1.contains(2))
+
