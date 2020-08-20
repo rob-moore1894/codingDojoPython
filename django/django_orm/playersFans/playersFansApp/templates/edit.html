@@ -9,11 +9,11 @@
     <h1>Edit Player {{playerToEdit.id}}</h1>
     <form action="/updateplayer/{{playerToEdit.id}}" method="post">
         {% csrf_token %}
-    <p>First Name: <input type="text" name="fname" id="" value = "{{playerToEdit.firstname}}"></p>
-    <p>Last Name: <input type="text" name="lname" id="" value = "{{playerToEdit.lastname}}"></p>
-    <p>Team: <input type="text" name="team" id="" value = "{{playerToEdit.team}}"></p>
-    <p><input type="submit" value="Update Player"></p>
+        <p>First Name: <input type="text" name="fname" id="" value = "{{playerToEdit.firstname}}"></p>
+        <p>Last Name: <input type="text" name="lname" id="" value = "{{playerToEdit.lastname}}"></p>
+        <p>Team: <input type="text" name="team" id="" value = "{{playerToEdit.team}}"></p>
+        <p><input type="submit" value="Update Player"></p>
 
-  </form>
+    </form>
 </body>
 </html>
