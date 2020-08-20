@@ -8,30 +8,30 @@
 </head>
 <body>
     <div class="container p-5">
-        <h1>{{identifiedBook.title}}</h1>
-        <p>ID: {{identifiedBook.id}}</p>
+        <h1>{{identifiedAuthor.first_name}} {{identifiedAuthor.last_name}}</h1>
+        <p>ID: {{identifiedAuthor.id}}</p>
         <div class="row">
-            <p class="col-3">Description: </p>
-            <p class="col">{{ identifiedBook.desc }}</p>
+            <p class="col-3">Notes: </p>
+            <p class="col">{{ identifiedAuthor.notes }}</p>
         </div>
 
-        <p>Authors: </p>
+        <p>Books: </p>
         <ul>
-            {% for author in identifiedBook.authors.all %}
-            <li>{{author.first_name}} {{author.last_name}}</li>
+            {% for book in identifiedAuthor.book.all %}
+            <li>{{book.title}}</li>
             {% endfor %}
         </ul>
 
-        <form action="/addAuthorToBook/{{identifiedBook.id}}" method="POST">
+        <form action="/addBookToAuthor/{{identifiedAuthor.id}}" method="POST">
             {% csrf_token %}
-            <select name="authorInfo" class="col-4">
-                <option value="">-select an author-</option>
-                {% for author in otherAuthors %}
-                <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+            <select name="bookInfo" class="col-4">
+                <option value="">-select a book-</option>
+                {% for book in otherBooks %}
+                <option value="{{book.id}}">{{book.title}}</option>
                 {% endfor %}
             </select>   
             <input type="hidden" value="bookInfo" value="{{identifiedBook.id}}">
-            <input type="submit" value="Add Author">
+            <input type="submit" value="Add Book">
         </form>
 
     </div>

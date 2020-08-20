@@ -4,6 +4,6 @@
     box-sizing: border-box;
 }
 
-#desc {
+#desc, #notes {
     height: 150px;
 }
