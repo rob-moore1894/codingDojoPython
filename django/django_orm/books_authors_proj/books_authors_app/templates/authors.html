@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <form class="col-6" action="/addAuthor" method="POST">
+                {% csrf_token %}
+                <h1 class="text-center">Add an Author</h1>
+                <div class="form-group row">
+                    <label for="first_name" class="col-form-label col-3">First Name</label>
+                    <div class="col">
+                        <input id="first_name" type="text" name="first_name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="last_name" class="col-form-label col-3">Last Name</label>
+                    <div class="col">
+                        <input id="last_name" type="text" name="last_name" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="desc" class="col-form-label col-3">Notes</label>
+                    <div class="col">
+                        <input id="desc" type="text" name="desc" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-3">
+                        <button id="submitBook" type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-striped col-6 text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for author in all_authors %}
+                    <tr>
+                        <td>{{author.id}}</td>
+                        <td>{{author.first_name}} {{author.last_name}}</td>
+                        <td><a href="/authors/{{author.id}}">View</a></td>
+                    </tr>
+                {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

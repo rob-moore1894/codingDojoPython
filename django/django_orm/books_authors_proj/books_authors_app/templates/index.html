@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <form class="col-6" action="/addBook" method="POST">
+                {% csrf_token %}
+                <h1 class="text-center">Add a Book</h1>
+                <div class="form-group row">
+                    <label for="title" class="col-form-label col-3">Title</label>
+                    <div class="col">
+                        <input id="title" type="text" name="title" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="desc" class="col-form-label col-3">Description</label>
+                    <div class="col">
+                        <input id="desc" type="text" name="desc" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-3">
+                        <button id="submitBook" type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </div>
+            </form>
+            <table class="table table-striped col-6 text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for book in all_books %}
+                    <tr>
+                        <td>{{book.id}}</td>
+                        <td>{{book.title}}</td>
+                        <td><a href="/books/{{book.id}}">View</a></td>
+                    </tr>
+                {% endfor %}
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
