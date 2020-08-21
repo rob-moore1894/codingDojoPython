@@ -13,6 +13,13 @@
     <a href="/shows" class="goback">Go Back</a>
     <div id="wrapper">
         <h1>Edit Show {{selectedShow.id}}</h1>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <form action="editShow" method="POST">
             {% csrf_token %}
             <div class="form-group">
