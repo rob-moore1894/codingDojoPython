@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 3rem;  
+}
+
+#inputShowDesc {
+    height: 8rem; 
+}
+
+.table {
+    margin-top: 2rem; 
+}
+
+.goback {
+    position: fixed;
+    right: 2rem;
+    top: 1rem;
+}

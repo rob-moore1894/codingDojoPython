@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <a href="/shows" class="goback">Go Back</a>
+    <div id="wrapper">
+        <h1>Add a New Show</h1>
+        <form action="createShow" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputShowTitle">Title</label>
+                <input class="form-control" type="text" id="titleInput" name="inputShowTitle">
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="inputShowNetwork">Network</label>
+                    <input class="form-control" type="text" id="inputShowNetwork" name="inputShowNetwork">
+                </div>
+                <div class="col">
+                    <label for="inputReleaseDate">Release Date</label>
+                    <input class="form-control" type="date" id="inputReleaseDate" name="inputReleaseDate">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputShowDesc">Description</label>
+                <textarea class="form-control" type="text" id="inputShowDesc" name="inputShowDesc" ></textarea>
+            </div>
+            <div class="text-center">
+                <input class="p-2" type="submit" value="Create">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

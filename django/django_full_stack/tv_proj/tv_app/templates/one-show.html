@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (One)</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <a href="/shows" class="goback">Go Back</a>
+    <div id="wrapper">
+        <h1>TV Show {{selectedShow.id}}</h1>
+        <div class="row mt-5">
+            <p class="col-2">Title:</p>
+            <p class="col">{{selectedShow.title}}</p> 
+        </div>
+        <div class="row">
+            <p class="col-2">Network:</p>
+            <p class="col">{{selectedShow.network}}</p> 
+        </div>
+        <div class="row">
+            <p class="col-2">Release Date:</p>
+            <p class="col">{{selectedShow.releaseDate}}</p> 
+        </div>
+        <div class="row">
+            <p class="col-2">Description:</p>
+            <p class="col">{{selectedShow.description}}</p> 
+        </div>
+        <div class="row mt-5 pt-5">
+            <p class="col-2">Last Updated:</p>
+            <p class="col">{{selectedShow.updated_at}}</p>
+        </div>
+        <div class="row">
+            <a class="col-1" href="/shows/{{selectedShow.id}}/edit">Edit</a>|
+            <a class="col-1 ml-3" href="/shows/{{selectedShow.id}}/destroy">Delete</a>
+        </div>
+    </div>    
+</body>
+</html>
