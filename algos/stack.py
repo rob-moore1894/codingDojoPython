@@ -122,3 +122,30 @@ def palindrome(queueInput):
 
 
 palindrome(q1)
+
+def copyStack(ogStack):
+    q = Queue()
+    result = Stack()
+    length = ogStack.size()
+    ogrunner = ogStack.top
+    for i in range(0,length, 1):
+        newnode = Node(ogrunner.value)
+        result.push(newnode)
+        ogrunner=ogrunner.next
+    # print(result.top.value.value)
+    for i in range(0, length, 1):
+        newnode= Node(result.pop())
+        q.enqueue(newnode)
+
+    for i in range(0, length, 1):
+        newnode = Node(q.dequeue())
+        result.push(newnode)
+
+    return result
+
+
+stk1.push(23).push(6).push(8)
+
+print(copyStack(stk1))
+y = copyStack(stk1)
+y.display()
