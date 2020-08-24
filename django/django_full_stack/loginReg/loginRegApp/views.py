@@ -23,6 +23,9 @@ def register(request):
     return redirect('/home')
 
 def home(request):
+    if 'loggedInUser' not in request.session:
+        messages.error(request, "You must be logged in to view")
+        return redirect('/')
     context = {
         'loggedInUser': User.objects.get(id=request.session['loggedInId'])
     }
