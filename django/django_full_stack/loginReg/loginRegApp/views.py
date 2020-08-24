@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import User
-import bcrypt   
 
 # Create your views here.
 def index(request):
@@ -28,3 +27,19 @@ def home(request):
         'loggedInUser': User.objects.get(id=request.session['loggedInId'])
     }
     return render(request, "home.html", context)
+
+def login(request):
+    loginErrors = User.objects.loginValidator(request.POST)
+    if len(loginErrors) > 0: 
+        for value in loginErrors.values():
+            messages.error(request, value)
+        return redirect('/')
+
+    else: 
+        usersWithEmail = User.objects.filter(email= request.POST['email'])
+        request.session['loggedInId'] = usersWithEmail[0].id
+        return redirect('/home')
+    
+def logout(request):
+    request.session.clear()
+    return redirect('/')
