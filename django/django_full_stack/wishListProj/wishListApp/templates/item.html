@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{oneItem.item}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <a href="/logout" style="position: fixed; right: 2rem; top: 1rem;">Logout</a>
+    <a href="/dashboard" style="position: fixed; right: 6rem; top: 1rem;">Home</a>
+    <div class="container">
+        <h1 class="text-center">{{oneItem.item}}</h1>
+        {% if oneItem.favoriters.all.count == 1%}
+        <p>{{oneItem.favoriters.all.count}} person has this on their wish list!</p>
+        {% else %}
+        <p>{{oneItem.favoriters.all.count}} people have this on their wish lists!</p>
+        {% endif %}
+        <p>Users who added this product/item under their wish list:</p>
+        <ul>
+            {% for user in oneItem.favoriters.all %}
+            <li>{{user.username}}</li>
+            {% endfor %}
+        </ul>
+    </div>  
+</body>
+</html>

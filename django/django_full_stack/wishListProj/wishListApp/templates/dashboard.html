@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wish List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+</head>
+<body>
+    <a href="/logout" style="position: fixed; right: 2rem; top: 1rem;">Logout</a>
+    <div class="container">
+        <h1 class="text-center">Hello, {{loggedInUser.name.capitalize}}</h1>
+        <h3>Your Wish List:</h3>
+        <table class="table table-striped">
+            <thead>
+                <th>Item</th>
+                <th>Added By</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </thead>
+            {% for item in user_items %}
+            <tr>
+                <td><a href="/wish_items/{{item.id}}">{{item.item}}</a></td>
+                <td>{{item.uploader.username}}</td>
+                <td>{{item.updated_at}}</td>
+                {% if item.uploader.username == loggedInUser.username %}
+                <td><a href="/delete/{{item.id}}">Delete</a></td>
+                {% else %}
+                <td><a href="/removeItem/{{item.id}}">Remove from my Wishlist</a></td>
+                {% endif%}
+            </tr>
+            {% endfor %}
+        </table>
+        <h3 class="mt-5">Other Users' Wish List:</h3>
+        <table class="table table-striped">
+            <thead>
+                <th>Item</th>
+                <th>Added By</th>
+                <th>Date Added</th>
+                <th>Action</th>
+            </thead>
+            {% for item in other_users_items %}
+            <tr>
+                <td><a href="/wish_items/{{item.id}}">{{item.item}}</a></td>
+                <td>{{item.uploader.username}}</td>
+                <td>{{item.updated_at}}</td>
+                <td><a href="/addItem/{{item.id}}">Add to my Wishlist</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="/wish_items/create" style="position: fixed; right: 2rem; bottom: 1rem;">Add Item</a>
+</body>
+</html>

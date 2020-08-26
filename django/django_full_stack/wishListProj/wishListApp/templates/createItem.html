@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Item</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+</head>
+<body>
+    <a href="/logout" style="position: fixed; right: 2rem; top: 1rem;">Logout</a>
+    <a href="/dashboard" style="position: fixed; right: 6rem; top: 1rem;">Home</a>
+    <div class="container">
+        <h1 class="text-center">Create a New Wish List Item</h1>
+        <form class="text-center" action="/create-item" method="POST">
+        {% csrf_token %}
+            <div class="form-group row mt-5">
+                <label for="item-product" class="col-3">Item/Product</label>
+                <input type="text" class="col-6" name="item-product">
+            </div>
+            <div class="form-group row">
+                <div class="offset-8">
+                    <button type="submit" class="btn btn-primary offset-9">Add</button>
+                </div>
+            </div>
+        </form>
+        <div class="errors offset-4 mt-3">
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor%}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
